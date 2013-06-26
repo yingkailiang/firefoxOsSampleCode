@@ -1,6 +1,6 @@
 {
 	"version": "0.1",
-	"name": "Your App",
+	"name": "firefox os test code",
 	"description": "Your new awesome Open Web App",
 	"launch_path": "/index.html",
 	"appcache_path": "/offline.appcache",

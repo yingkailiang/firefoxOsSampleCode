@@ -1,16 +1,108 @@
 <!DOCTYPE html>
 <html>
  <head>
-  <script type="text/javascript" src="js/checkerboard.js">
-  </script> 
+  <script src="js/checkerboard.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js">
+  </script>
+  <script>
+  var col;
+  var row;
+  $(document).ready(function(){
+	$('td').click(function(e){
+         col = $(this).parent().children().index($(this));
+	 row = $(this).parent().parent().children().index($(this).parent());
+         console.log('col: '+col+ ' ,row: '+row);
+         var image1 = $('<img />').attr('src','write.png');
+         $(this).append(image1);
+        });
+   });
+ 
+  </script>
 </head>
  <body> 
   <P id="demo">
   </p>
-  <table width="400" border="1" cellspacing=1 id="testTbl" onclick="fill()" > 
+  <table width="400" border="1" cellspacing=1 id="testTbl" > 
    <tr> 
     <td width="50" height="50"  bgcolor="green"  ></td> 
-   </tr> 
+    <td width="50" height="50"  bgcolor="white"  ></td> 
+    <td width="50" height="50"  bgcolor="green"  ></td> 
+    <td width="50" height="50"  bgcolor="white"  ></td> 
+    <td width="50" height="50"  bgcolor="green"  ></td> 
+    <td width="50" height="50"  bgcolor="white"  ></td> 
+    <td width="50" height="50"  bgcolor="green"  ></td> 
+    <td width="50" height="50'  bgcolor="white"  ></td> 
+   </tr>
+   <tr> 
+    <td width="50" height="50"  bgcolor="white"  ></td> 
+    <td width="50" height="50"  bgcolor="green"  ></td> 
+    <td width="50" height="50"  bgcolor="white"  ></td> 
+    <td width="50" height="50"  bgcolor="green"  ></td> 
+    <td width="50" height="50"  bgcolor="white"  ></td> 
+    <td width="50" height="50"  bgcolor="green"  ></td> 
+    <td width="50" height="50'  bgcolor="white"  ></td> 
+    <td width="50" height="50"  bgcolor="green"  ></td> 
+   </tr>
+   <tr> 
+    <td width="50" height="50"  bgcolor="green"  ></td> 
+    <td width="50" height="50"  bgcolor="white"  ></td> 
+    <td width="50" height="50"  bgcolor="green"  ></td> 
+    <td width="50" height="50"  bgcolor="white"  ></td> 
+    <td width="50" height="50"  bgcolor="green"  ></td> 
+    <td width="50" height="50"  bgcolor="white"  ></td> 
+    <td width="50" height="50"  bgcolor="green"  ></td> 
+    <td width="50" height="50'  bgcolor="white"  ></td> 
+   </tr>
+   <tr> 
+    <td width="50" height="50"  bgcolor="white"  ></td> 
+    <td width="50" height="50"  bgcolor="green"  ></td> 
+    <td width="50" height="50"  bgcolor="white"  ></td> 
+    <td width="50" height="50"  bgcolor="green"  ></td> 
+    <td width="50" height="50"  bgcolor="white"  ></td> 
+    <td width="50" height="50"  bgcolor="green"  ></td> 
+    <td width="50" height="50'  bgcolor="white"  ></td> 
+    <td width="50" height="50"  bgcolor="green"  ></td> 
+   </tr>  
+   <tr> 
+    <td width="50" height="50"  bgcolor="green"  ></td> 
+    <td width="50" height="50"  bgcolor="white"  ></td> 
+    <td width="50" height="50"  bgcolor="green"  ></td> 
+    <td width="50" height="50"  bgcolor="white"  ></td> 
+    <td width="50" height="50"  bgcolor="green"  ></td> 
+    <td width="50" height="50"  bgcolor="white"  ></td> 
+    <td width="50" height="50"  bgcolor="green"  ></td> 
+    <td width="50" height="50'  bgcolor="white"  ></td> 
+   </tr>
+   <tr> 
+    <td width="50" height="50"  bgcolor="white"  ></td> 
+    <td width="50" height="50"  bgcolor="green"  ></td> 
+    <td width="50" height="50"  bgcolor="white"  ></td> 
+    <td width="50" height="50"  bgcolor="green"  ></td> 
+    <td width="50" height="50"  bgcolor="white"  ></td> 
+    <td width="50" height="50"  bgcolor="green"  ></td> 
+    <td width="50" height="50'  bgcolor="white"  ></td> 
+    <td width="50" height="50"  bgcolor="green"  ></td> 
+   </tr>  
+   <tr> 
+    <td width="50" height="50"  bgcolor="green"  ></td> 
+    <td width="50" height="50"  bgcolor="white"  ></td> 
+    <td width="50" height="50"  bgcolor="green"  ></td> 
+    <td width="50" height="50"  bgcolor="white"  ></td> 
+    <td width="50" height="50"  bgcolor="green"  ></td> 
+    <td width="50" height="50"  bgcolor="white"  ></td> 
+    <td width="50" height="50"  bgcolor="green"  ></td> 
+    <td width="50" height="50'  bgcolor="white"  ></td> 
+   </tr>
+   <tr> 
+    <td width="50" height="50"  bgcolor="white"  ></td> 
+    <td width="50" height="50"  bgcolor="green"  ></td> 
+    <td width="50" height="50"  bgcolor="white"  ></td> 
+    <td width="50" height="50"  bgcolor="green"  ></td> 
+    <td width="50" height="50"  bgcolor="white"  ></td> 
+    <td width="50" height="50"  bgcolor="green"  ></td> 
+    <td width="50" height="50'  bgcolor="white"  ></td> 
+    <td width="50" height="50"  bgcolor="green"  ></td> 
+   </tr>   
   </table> 
   <label>
 

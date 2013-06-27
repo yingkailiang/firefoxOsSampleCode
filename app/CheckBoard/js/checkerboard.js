@@ -9,6 +9,8 @@
 //varibble NO ,count nubmer of line of board 
 var Count=false,NO=1; 
 
+
+
 //add one row to exist table
 function addRow()
 { 
@@ -28,18 +30,6 @@ var newTd7 = newTr.insertCell();
 //add attribute 
 if(!Count)
 {
-newTd0.style.background="white";
-newTd0.height="50";
-newTd1.style.background="green";
-newTd2.style.background="white";
-newTd3.style.background="green";
-newTd4.style.background="white";
-newTd5.style.background="green";
-newTd6.style.background="white";
-newTd7.style.background="green";
-} 
-else 
-{
 newTd0.style.background="green";
 newTd0.height="50";
 newTd1.style.background="white";
@@ -49,6 +39,18 @@ newTd4.style.background="green";
 newTd5.style.background="white";
 newTd6.style.background="green";
 newTd7.style.background="white";
+} 
+else 
+{
+newTd0.style.background="white";
+newTd0.height="50";
+newTd1.style.background="green";
+newTd2.style.background="white";
+newTd3.style.background="green";
+newTd4.style.background="white";
+newTd5.style.background="green";
+newTd6.style.background="white";
+newTd7.style.background="green";
 }  
  
 NO++;
@@ -62,6 +64,12 @@ function display()
  var player2 = n2.value.fontcolor("blue");
  document.getElementById("demo").innerHTML=player1 +"  vs  "+player2;
 }//end func display
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//change to use jquery at this time
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//click add * function
 
 //get row index
 function getRow(){ 
@@ -104,12 +112,9 @@ function enableFill()
 function createTab()
 {
  display();
- //enableFill();
- for (var i=0;i<8;i++)
- {
-  //add one row to table
-  addRow();
- }
  
 }//end func createTab
+//jquery
+
+
 

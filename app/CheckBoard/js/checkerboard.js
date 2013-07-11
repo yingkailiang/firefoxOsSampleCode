@@ -31,10 +31,11 @@ var options2 = {filterBy: ["givenName"],
 var request2 = navigator.mozContacts.find(options2);
 
 request1.onsuccess = function() {
+    alert(request1.result.length);
     if(request1.result.length > 0) {
         console.log("Found " + request1.result.length + " contacts");
             for (var j=0; j<request1.result[0].name.length; j++) {
-              name1= name1  + request1.result[i].name[j];
+              name1= name1  + request1.result[0].name[j];
             }
     } else {
         console.log("No contacts found.");
@@ -48,7 +49,7 @@ request2.onsuccess = function() {
     if(request2.result.length > 0) {
         console.log("Found " + request2.result.length + " contacts");
             for (var j=0; j<request2.result[0].name.length; j++) {
-              name2= name2 + request2.result[i].name[j];
+              name2= name2 + request2.result[0].name[j];
             }
     } else {
         console.log("No contacts found.");

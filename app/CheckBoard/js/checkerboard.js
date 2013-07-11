@@ -4,117 +4,88 @@
   Email : yingkailiang0920@gmail.com 
 */
 
-
-//variable Count boolean use to disdinguish every line of board
-//varibble NO ,count nubmer of line of board 
-var Count=false,NO=1; 
-
-
-
-//add one row to exist table
-function addRow()
-{ 
-Count=!Count; 
-//add row
-var newTr = testTbl.insertRow(testTbl.rows.length); 
-//add column 
-var newTd0 = newTr.insertCell(); 
-var newTd1 = newTr.insertCell(); 
-var newTd2 = newTr.insertCell(); 
-var newTd3 = newTr.insertCell(); 
-var newTd4 = newTr.insertCell(); 
-var newTd5 = newTr.insertCell(); 
-var newTd6 = newTr.insertCell(); 
-var newTd7 = newTr.insertCell(); 
-
-//add attribute 
-if(!Count)
-{
-newTd0.style.background="green";
-newTd0.height="50";
-newTd1.style.background="white";
-newTd2.style.background="green";
-newTd3.style.background="white";
-newTd4.style.background="green";
-newTd5.style.background="white";
-newTd6.style.background="green";
-newTd7.style.background="white";
-} 
-else 
-{
-newTd0.style.background="white";
-newTd0.height="50";
-newTd1.style.background="green";
-newTd2.style.background="white";
-newTd3.style.background="green";
-newTd4.style.background="white";
-newTd5.style.background="green";
-newTd6.style.background="white";
-newTd7.style.background="green";
-}  
- 
-NO++;
-} //end func addrow
-
-
 //display name on the top
+//input number and read from contact who has this number 
 function display()
-{ 
- var player1 = n1.value.fontcolor("red");
- var player2 = n2.value.fontcolor("blue");
+{
+ //temporary store name
+ var name1="";
+ var name2="";
+ //use contact API 
+ var options1 = {filterBy: ["givenName"],
+               filterOp: "equals",
+               filterValue:n1.value, 
+               sortBy: "givenName",
+               sortOrder: "ascending"
+};
+
+var request1 = navigator.mozContacts.find(options1);
+
+var options2 = {filterBy: ["givenName"],
+               filterOp: "equals",
+               filterValue:n2.value, 
+               sortBy: "givenName",
+               sortOrder: "ascending"
+};
+
+var request2 = navigator.mozContacts.find(options2);
+
+request1.onsuccess = function() {
+    if(request1.result.length > 0) {
+        console.log("Found " + request1.result.length + " contacts");
+            for (var j=0; j<request1.result[0].name.length; j++) {
+              name1= name1  + request1.result[i].name[j];
+            }
+    } else {
+        console.log("No contacts found.");
+    }
+};
+
+request1.onerror = function() {
+    alert("Error finding contacts.");
+};
+request2.onsuccess = function() {
+    if(request2.result.length > 0) {
+        console.log("Found " + request2.result.length + " contacts");
+            for (var j=0; j<request2.result[0].name.length; j++) {
+              name2= name2 + request2.result[i].name[j];
+            }
+    } else {
+        console.log("No contacts found.");
+    }
+};
+
+request2.onerror = function() {
+    alert("Error finding contacts.");
+};
+
+//display name on top
+ var player1 = name1.value.fontcolor("red");
+ var player2 = name2.value.fontcolor("blue");
  document.getElementById("demo").innerHTML=player1 +"  vs  "+player2;
 }//end func display
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//change to use jquery at this time
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-//click add * function
-
-//get row index
-function getRow(){ 
-var ObjTd=window.event.srcElement; 
-var ObjTr=ObjTd.parentElement; 
-var y=ObjTr.rowIndex; 
-var x=ObjTd.cellIndex; 
-return y
-} 
-
-//get column index
-function getCol(){ 
-var ObjTd=window.event.srcElement; 
-var ObjTr=ObjTd.parentElement; 
-var y=ObjTr.rowIndex; 
-var x=ObjTd.cellIndex; 
-return x
-} 
-
-//fill checkers and remove checkers use "*" as checkers
-function fill()
-{
-if(document.getElementById("testTbl").rows[getRow()].cells[getCol()].innerText=="*")
-{
-document.getElementById("testTbl").rows[getRow()].cells[getCol()].innerText=null;
-return;
-}
-var checkers= document.getElementById("testTbl").rows[getRow()].cells[getCol()];
-checkers.align ="center";
-checkers.innerText="*";
-}
-
-//make all cell in the table onclick fill()
-function enableFill()
-{
- testTbl.rows[1].cells[1].onclick="fill()";
-}
-
-//create table ,main entrance
-function createTab()
-{
- display();
- 
-}//end func createTab
-//jquery
-
+//put chess in board
+  var col;
+  var row;
+  var chessColor=false;   
+  $(document).ready(function(){
+	$('td').click(function(e){
+         col = $(this).parent().children().index($(this));
+	 row = $(this).parent().parent().children().index($(this).parent());
+         console.log('col: '+col+ ' ,row: '+row);
+         var image1 = $('<img />').attr('src','img/write.png');
+         var image2 = $('<img />').attr('src','img/green.png');
+         if(chessColor==false) 
+         {
+           $(this).append(image1);
+         }
+	 else
+         {
+           $(this).append(image2);
+         } 
+         chessColor=!chessColor;
+        });
+   });
 
 

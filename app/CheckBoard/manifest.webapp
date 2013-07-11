@@ -1,17 +1,23 @@
 {
     "name": "checkers",
     "description": "Checkerboard to play gobang",
+    "type": "privileged",
     "launch_path": "/checkers.html",
     "developer": {
         "name": "Kailiang Ying",
         "url": "https://github.com/yingkailiang/firefoxOsSampleCode.git"
     },
     "icons": {
-        "16": "img/icon16.png",
-        "32": "img/icon32.png",
-        "48": "img/icon48.png",
-        "64": "img/icon64.png",
-        "128": "img/icon128.png"
+        "16": "/img/icon16.png",
+        "32": "/img/icon32.png",
+        "48": "/img/icon48.png",
+        "64": "/img/icon64.png",
+        "128": "/img/icon128.png"
+    },
+    "permissions": {
+    "contacts":{ "access": "readwrite" }
     },
     "default_locale": "en"
 }
+  
+

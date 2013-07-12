@@ -5,9 +5,28 @@
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js">
   </script>
   <script>
-  
- 
-  
+  //put chess in board
+  var col;
+  var row;
+  var chessColor=false;   
+  $(document).ready(function(){
+	$('td').click(function(e){
+         col = $(this).parent().children().index($(this));
+	 row = $(this).parent().parent().children().index($(this).parent());
+         console.log('col: '+col+ ' ,row: '+row);
+         var image1 = $('<img />').attr('src','img/write.png');
+         var image2 = $('<img />').attr('src','img/green.png');
+         if(chessColor==false) 
+         {
+           $(this).append(image1);
+         }
+	 else
+         {
+           $(this).append(image2);
+         } 
+         chessColor=!chessColor;
+        });
+   });
   </script>
 </head>
  <body> 
@@ -98,7 +117,6 @@
   <label>
 
     <input type="text" id="n1">
-    <input type="text" id="n2">
 
     <input type="button" value="Start!" onclick="display()" /> 
   </label> 

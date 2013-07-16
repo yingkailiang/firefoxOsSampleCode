@@ -3,13 +3,20 @@
   Author : Kailiang
   Email : yingkailiang0920@gmail.com 
 */
-//display name on the top
-//input number and read from contact who has this number 
+
+//Battery API
+function showBattery()
+{
+  // batteryState.style.width = level;
+  // batteryState.innerHTML = 'Battery: ' + level;
+} //end function showBattery
+
+//Contact API
 function display()
 {
  //temporary store name
  var name1="";
- //use contact API 
+ 
  var options1 = {filterBy: ["givenName"],
                filterOp: "equals",
                filterValue:n1.value, 
@@ -30,15 +37,25 @@ request1.onsuccess = function() {
     } else {
         console.log("No contacts found.");
     }
-};
-
-request1.onerror = function() {
+}; request1.onerror = function() {
     alert("request1 Error finding contacts.");
 };
 
-//display name on top
- //document.getElementById("demo").innerHTML= player;
+var battery = navigator.battery;
+//alert(battery.level);
+if(battery)
+{
+   batteryState = document.getElementById("batteryState");
+// Set listeners for changes
+   batteryState.innerHTML = 'Battery: '+battery.level*100+'%';
+   battery.addEventListener('levelchange', function() { 
+   batteryState.innerHTML = 'Battery: '+battery.level*100+'%';
+   },false);
+}
+else
+{
+ alert("battery status cannot read");
+}
 }//end func display
-
 
 

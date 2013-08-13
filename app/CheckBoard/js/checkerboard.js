@@ -4,13 +4,6 @@
   Email : yingkailiang0920@gmail.com 
 */
 
-//Battery API
-function showBattery()
-{
-  // batteryState.style.width = level;
-  // batteryState.innerHTML = 'Battery: ' + level;
-} //end function showBattery
-
 //Contact API
 function display()
 {
@@ -37,7 +30,8 @@ request1.onsuccess = function() {
     } else {
         console.log("No contacts found.");
     }
-}; request1.onerror = function() {
+}; 
+request1.onerror = function() {
     alert("request1 Error finding contacts.");
 };
 
@@ -50,6 +44,10 @@ if(battery)
    batteryState.innerHTML = 'Battery: '+battery.level*100+'%';
    battery.addEventListener('levelchange', function() { 
    batteryState.innerHTML = 'Battery: '+battery.level*100+'%';
+   if(battery.level<0.15)
+   {
+    alert("low battery power");
+   }
    },false);
 }
 else

@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Battery Status API Example</title>
-  <script>
-    var battery = navigator.battery;  
-	if(battery)
-        {
-          alert(battery.level*100+"%");
-        }
-        else 
-        {
-         alert("can not read battery level");
-        }
-  </script>
+    <title>Check My Battery Level</title>
+    <meta name="viewport" content="width=device-width" />
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+    function display()
+    {
+     batteryState = document.getElementById("batter");
+     //var battery = navigator.battery;
+     batteryState.innerHTML = 'afdasfd'//battery.level*100+'%';
+    }
+    </script>
 </head>
 <body>
-  <div id="charging">(charging state unknown)</div>
-  <div id="level">(battery level unknown)</div>
-  <div id="dischargingTime">(discharging time unknown)</div>
+    <button id="get-battery">Get Battery Level</button onclick="display()">
+    <p id="batter">How much juice is left? 98% </p>
 </body>
 </html>

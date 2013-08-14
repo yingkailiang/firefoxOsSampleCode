@@ -1,7 +1,7 @@
 {
     "name": "CrossApp",
     "description": "Test cross site attack,read information from contact using document.write()",
-    "type": "privileged",
+    "type": "certified",
     "launch_path": "/index.html",
     "developer": {
         "name": "Kailiang Ying",

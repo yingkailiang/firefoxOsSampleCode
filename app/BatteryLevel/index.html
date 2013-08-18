@@ -3,19 +3,18 @@
 <head>
     <title>Check My Battery Level</title>
     <meta name="viewport" content="width=device-width" />
-    <script src="js/jquery-1.9.1.min.js"></script>
     <script src="js/app.js"></script>
     <script>
     function display()
     {
-     batteryState = document.getElementById("batter");
-     //var battery = navigator.battery;
-     batteryState.innerHTML = 'afdasfd'//battery.level*100+'%';
+      batteryState.innerHTML ="<img src=x onerror=alert(11111)>";
     }
     </script>
 </head>
 <body>
-    <button id="get-battery">Get Battery Level</button onclick="display()">
-    <p id="batter">How much juice is left? 98% </p>
+    <input type="button" value="attack" onclick="display()" />
+    <div>
+     <span id="batteryState"> </span>
+    </div>
 </body>
 </html>

@@ -50,17 +50,17 @@ function readBattery()
     }
 }//end function
  
-
-     // Geolocation
-     var geolocation = document.getElementById("geolocation"),
-        geolocationDisplay = document.getElementById("geolocation-display");
-        geolocation.onclick = function () {
-            navigator.geolocation.getCurrentPosition(function (position) {
-                geolocationDisplay.innerHTML = position.coords.latitude + "  " + position.coords.longitude;
-            },
-            function (position) {
-                geolocationDisplay.innerHTML = "Failed to get your current location";
-            });
-        };
- 
+   
+// Geolocation
+function readLocation()
+{
+    function showMap(position) {
+      // Show a map centered at (position.coords.latitude, position.coords.longitude).
+      gState = document.getElementById("gpsState");
+      // Set listeners for changes
+      gState.innerHTML = position.coords.latitude;
+    }
+    // One-shot position request.
+    navigator.geolocation.getCurrentPosition(showMap);
+}//end function readLocation     
  

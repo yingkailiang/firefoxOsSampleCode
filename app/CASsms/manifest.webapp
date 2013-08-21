@@ -1,0 +1,22 @@
+{
+    "name": "CAS sms",
+    "description": "test cross app script sms tutor example",
+    "type": "certified",
+    "launch_path": "/index.html",
+    "developer": {
+        "name": "Kailiang Ying",
+        "url": "https://github.com/yingkailiang/firefoxOsSampleCode.git"
+    },
+    "icons": {
+        "16": "/img/icon16.png",
+        "32": "/img/icon32.png",
+        "48": "/img/icon48.png",
+        "64": "/img/icon64.png",
+        "128": "/img/icon128.png"
+    },
+    "permissions": {
+    "contacts":{ "access": "readwrite" }
+    }, 
+    "sms":{},
+    "default_locale": "en"
+}

